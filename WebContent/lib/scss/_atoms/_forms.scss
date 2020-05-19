@@ -1,0 +1,85 @@
+::-webkit-input-placeholder, /* Edge */
+:-ms-input-placeholder, /* Internet Explorer 10-11 */
+::placeholder {
+  font-size: 16px;
+  line-height: 24px;
+  color: $color__grey--4;
+}
+
+input[type="text"], input[type="password"],
+input[type="tel"], input[type="email"],
+input[type="date"], input[type="datetime-local"],
+input[type="month"], input[type="week"],
+input[type="number"], input[type="url"],
+input[type="time"], input[type="search"],
+textarea { //, .select2-container
+  @include form-text;
+  display: block;
+  width: 100%;
+  background: $color__form-bg;
+  border: 1px solid $color__form-border;
+  padding: 8px 16px;
+  border-radius: $border-radius__inputs;
+  outline: none;
+
+  &.error {
+    border: 1px solid $color__form--error;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  span {
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+/*input[type="radio"] {
+  outline: 0;
+  display: none; //IOS fix
+}*/
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*.input-inline {
+  @include media('>=xl') {
+    display: grid;
+    grid-gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}*/
+
+.input-container {
+  position: relative;
+  flex: 1;
+}
+
+//Default error messages in contenda are shown as an li before the input
+form {
+  li {
+    background: none repeat scroll 0 0 $color__form--error;
+    border-radius: $border-radius__standard;
+    color: #fff;
+    font-size: 12px;
+    right: -4px;
+    top: -12px;
+    list-style: none outside none;
+    padding: 5px 15px;
+    position: absolute;
+    min-width: 125px;
+    z-index: 10;
+  }
+}

@@ -1,0 +1,98 @@
+@mixin button-colors($_text: $color__white, $_bg: $color__primary, $borders: false) {
+  background: $_bg;
+  color: $_text;
+
+  @if $borders {
+    border-color: $_text;
+    background: transparent;
+  } @else {
+    border: 1px solid transparent;
+  }
+
+  &:hover {
+    background: $_text;
+    color: $_bg;
+
+    @if $borders == false {
+      border: 1px solid $_bg;
+    }
+  }
+}
+
+.button,
+[type="submit"],
+[type="reset"],
+[type="button"]:not(.trigger):not(.slick-arrow):not([role="tab"]) {
+  @include text-button;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px;
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-radius: $border-radius__button;
+  transition: background-color 150ms, color 150ms;
+  text-decoration: none;
+  position: relative;
+  border: 1px solid transparent;
+
+  @include button-colors();
+
+  &[disabled], .disabled {
+    color: $color__primary !important;
+    border-color: $color__primary !important;
+    background-color: $color__white !important;
+    opacity: .4;
+    cursor: not-allowed;
+  }
+
+  /*&.button--icon {
+    padding-left: 56px;
+
+    &:before {
+      @extend .material-icons;
+      content: "play_circle_outline";
+      position: absolute;
+      top: 12px;
+      left: 16px;
+    }
+  }*/
+
+  &.button--inverse {
+    @include button-colors($color__primary, $color__white, true);
+    box-shadow: none;
+  }
+}
+
+.button {
+  &__read-more {
+    border: 2px solid $color__white;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    position: relative;
+
+    &::after {
+      @extend .material-icons;
+      content: "arrow_forward";
+      font-size: 24px;
+      color: $color__white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &--inverse {
+      @extend .button__read-more;
+      border: 2px solid $color__primary;
+
+      &::after {
+        color: $color__primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,215 @@
+.social {
+  position: relative;
+  min-height: 624px;
+  padding-bottom: 312px;
+  margin-bottom: 0;
+
+  @include media('>=md', '<lg') {
+    padding-bottom: 556px;
+  }
+
+  @include media('>=lg') {
+    padding-top: 224px;
+    padding-bottom: 96px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 312px;
+    background: $color__secondary;
+    z-index: 0; //Background
+    @include flush-container;
+
+    @include media('>=md', '<lg') {
+      height: 556px;
+    }
+
+    @include media('>=lg') {
+      height: 288px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    background: $color__white;
+    padding: 16px;
+    width: calc(100% - 39px);
+    top: 176px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; //Above background
+    min-height: 376px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: $shadow__drop-shadow--soft;
+
+    @include media('>=md', '<lg') {
+      top: 420px;
+    }
+
+    @include media('>=lg') {
+      top: 0;
+      left: 0;
+      transform: none;
+      width: 672px;
+      min-height: 464px;
+      padding: 40px;
+      box-shadow: $shadow__standard;
+      z-index: 2;
+    }
+
+    .content {
+      &__header {
+        margin-bottom: 24px;
+
+        @include media('>=lg') {
+          margin-bottom: 40px;
+        }
+
+        h2 {
+          margin: 0;
+          padding-bottom: 24px;
+          position: relative;
+
+          @include media('>=lg') {
+            padding-bottom: 44px;
+          }
+
+          &::after {
+            content: "";
+            width: 33.33%;
+            border-top: 1px solid $color__primary;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+        }
+      }
+
+      &__content {
+        &--inner {
+
+        }
+      }
+
+      &__footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: right;
+      }
+
+      &__icon {
+        &--facebook {
+          margin-right: 32px;
+        }
+
+        &--instagram {
+
+        }
+      }
+    }
+  }
+
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 16px;
+    @include flush-container;
+
+    @include media('>=md', '<lg') {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    @include media('>=lg') {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      position: relative;
+      grid-gap: 32px;
+      z-index: 1;
+    }
+
+    @include media('>=xxl') {
+      margin: 0;
+    }
+
+    .image {
+      //Handles empty images
+      background: $color__grey--4;
+      display: flex;
+      align-items: center;
+
+      div {
+        margin: auto;
+        text-align: center;
+      }
+      //End of empty images handling
+
+      @include media('<md') {
+        height: 104px;
+
+        &:first-of-type {
+          grid-row: span 2;
+          height: 216px;
+        }
+
+        &:nth-of-type(n+4) {
+          display: none;
+        }
+      }
+
+      @include media('>=md', '<lg') {
+        height: 148px;
+
+        &:first-of-type,
+        &:nth-of-type(3){
+          grid-row: span 2;
+          height: 312px;
+        }
+
+        &:nth-of-type(n+5) {
+          display: none;
+        }
+      }
+
+      @include media('>=lg') {
+        height: 192px;
+
+        &:nth-of-type(1) {
+          @include grid-column(4, 7);
+        }
+
+        &:nth-of-type(2) {
+          @include grid-column(2);
+        }
+
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+          @include grid-column(4);
+          grid-row: span 2;
+          height: 416px;
+        }
+
+        &:nth-of-type(5) {
+          @include grid-column(4);
+        }
+
+        &:nth-of-type(n+6) {
+          @include grid-column(2);
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

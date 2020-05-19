@@ -1,0 +1,39 @@
+
+.widgetSection {
+  margin-bottom: 48px;
+
+  @include media('>=lg') {
+    margin-bottom: 96px;
+  }
+}
+
+@include logged-in {
+  [contenteditable] {
+    &:empty {
+      &:before {
+        content: "Indsæt text";
+        opacity: .2;
+        cursor: text;
+        transition: all .2s;
+      }
+
+      &:hover:before {
+        opacity: .5;
+      }
+
+      &:focus:before {
+        content: "\00a0"; // &nbsp;
+      }
+    }
+  }
+}
+
+@include not-logged-in {
+  .drop-box {
+    display: none;
+  }
+
+  .widgetList {
+    min-height: 0;
+  }
+}

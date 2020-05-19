@@ -1,0 +1,57 @@
+/// @param {String} $element-selector - Element selector
+@mixin prepend($element-selector) {
+  @at-root #{$element-selector + &} {
+    @content;
+  }
+}
+
+/// @param {String} $element-selector - Element selector
+@mixin logged-in() {
+  @at-root body.logged-in {
+    @content;
+  }
+}
+
+/// @param {String} $element-selector - Element selector
+@mixin not-logged-in() {
+  @at-root body.not-logged-in {
+    @content;
+  }
+}
+
+// use
+// @include logged-in { ... }
+// to produce:
+// @at-root body.logged-in & { ... }
+
+
+/// @param {String} $element-selector - Element selector
+@mixin body-class($selector) {
+  @at-root body#{$selector} {
+    @content;
+  }
+}
+
+@mixin template-page($selector) {
+  @at-root body.page.#{$selector} {
+    @content;
+  }
+}
+
+@mixin template-static($selector) {
+  @at-root body.static.#{$selector} {
+    @content;
+  }
+}
+
+body {
+  &.logged-in {
+    padding: 0;
+
+    #content {
+      .footer {
+        width: 100%;
+      }
+    }
+  }
+}

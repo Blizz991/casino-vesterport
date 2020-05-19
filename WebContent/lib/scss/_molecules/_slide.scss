@@ -1,0 +1,49 @@
+.slide { //Molecule of slider-heor__slide(s)
+  &__container {
+    width: 100%;
+    margin-top: auto;
+    z-index: 1;
+  }
+
+  &__header,
+  &__content {
+    h1, p {
+      color: $color__white;
+    }
+
+    @include media('>=lg') {
+      max-width: 50%;
+    }
+  }
+
+  &__header {
+    h1 {
+      letter-spacing: -0.41px;
+
+      @include media('>=lg') {
+        letter-spacing: initial;
+      }
+    }
+  }
+
+  &__content {
+    p {
+      -webkit-text-fill-color: $color__white; /* Will override color (regardless of order) */
+      -webkit-text-stroke-color: black;
+      -webkit-text-stroke-width: 0.2px;
+    }
+  }
+
+  &__footer {
+    margin-top: 40px;
+
+    @include media('>=lg') {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__read-more {
+    background-color: $color__secondary;
+    width: 176px;
+  }
+}

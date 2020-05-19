@@ -1,0 +1,97 @@
+@import '../vendors/include-media';
+
+$grid-gap: 16px !default;
+$grid-gap-md: 24px !default;
+$grid-gap-lg: 32px !default;
+
+@mixin container-padding {
+  padding-right: 20px;
+  padding-left: 19px;
+
+  //Allow overriding padding by doing left-right instead.
+  @include media('>=smd') { //Small tablets and above
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  @include media('>=lg') { //Ipad landscape and above
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+}
+
+@mixin flush-container {
+  //Flush to edge of container
+  margin-right: -20px;
+  margin-left: -19px;
+
+  //Allow overriding margin by doing left-right instead.
+  @include media('>=smd') { //Small tablets and above
+    margin-right: -40px;
+    margin-left: -40px;
+  }
+
+  @include media('>=lg') { //Ipad landscape and above
+    margin-right: -64px;
+    margin-left: -64px;
+  }
+}
+
+@mixin container() {
+  max-width: 1440px;
+  margin: 0 auto 32px;
+  z-index: 0;
+}
+
+@mixin grid-container($_columns: 4) {
+  @include container();
+  display: grid;
+  grid-gap: $grid-gap;
+  grid-template-columns: repeat($_columns, 1fr);
+
+  @include media('>=md') { //Small tablets and above
+    grid-gap: $grid-gap-md;
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include media('>=lg') { //Ipad landscape and above
+    grid-gap: $grid-gap-lg;
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@mixin grid-column($n: 4, $start-col: auto) {
+  grid-column: $start-col / span $n;
+}
+
+@mixin max-grid-columns {
+  @include grid-column(4);
+
+  @include media('>=md') { //Small tablets and above
+    @include grid-column(8);
+  }
+
+  @include media('>=lg') { //Ipad landscape and above
+    @include grid-column(12);
+  }
+}
+
+//Usage for media: override-grid-gap(16px, '>=lg');
+@mixin override-grid-gap($override-grid-gap, $media: null) {
+  @if($media !=null) {
+    @include media($media) { //Ipad landscape and above
+      grid-gap: $override-grid-gap;
+    }
+  }
+  @else { //Override defaults
+    grid-gap: $override-grid-gap;
+
+    @include media('>=md') { //Small tablets and above
+      grid-gap: $override-grid-gap;
+    }
+
+    @include media('>=lg') { //Ipad landscape and above
+      grid-gap: $override-grid-gap;
+    }
+  }
+}

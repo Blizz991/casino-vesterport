@@ -1,0 +1,65 @@
+.splitContent {
+  @include flush-container;
+
+  &__content {
+    @include media('>=md') {
+      display: flex;
+    }
+
+    .content {
+      &__item {
+        height: 320px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 80px 40px 40px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        @include media('>=md') {
+          height: 600px;
+          width: 50%;
+        }
+
+        @include media('>=lg') {
+          height: 800px;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: $color__secondary--overlay;
+        }
+
+        h2 {
+          color: $color__white;
+          text-align: center;
+          margin-bottom: 0;
+          font-size: 32px;
+          line-height: 48px;
+          z-index: 1;
+
+          @include media('>=md') {
+            font-size: 64px;
+            line-height: 72px;
+            margin-top: auto;
+            margin-bottom: 40px;
+          }
+        }
+      }
+
+      &__read-more {
+        margin: auto auto 0;
+
+        @include media('>=lg') {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

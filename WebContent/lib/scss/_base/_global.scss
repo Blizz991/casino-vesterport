@@ -1,0 +1,43 @@
+/* apply a natural box layout model to all elements,
+but allowing components to change */
+@at-root html,
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+@at-root html {
+  overflow-x: hidden; //Fix touch bug
+}
+
+@at-root body {
+  /*background: $color--background;*/
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+input, textarea, button {
+  -webkit-appearance: none;
+}
+
+#main_body {
+  min-height: auto;
+  width: 100%;
+}
+
+@include logged-in {
+  #main_body {
+    min-height: auto;
+  }
+
+  md-content {
+    overflow-x: hidden;
+  }
+
+  md-toast div {
+    color: white !important;
+  }
+
+  .card-link {
+    pointer-events: none;
+  }
+}

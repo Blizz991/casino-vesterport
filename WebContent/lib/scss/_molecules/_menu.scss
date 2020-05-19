@@ -1,0 +1,30 @@
+#mainmenu.menu {
+  list-style: none;
+  padding: 0;
+  text-align: right;
+  margin: 48px 0 0;
+
+  li.leaf {
+    a {
+      /*font-size: 32px;
+      line-height: 36px;*/
+      //Design is using wrong font, so it looks weird as hell at this size, suggest using below code instead
+
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 400; //Regular - normal
+      padding: 6px 0;
+      color: $color__primary;
+    }
+  }
+
+  &__contact {
+    &-item {
+      margin-top: 64px;
+    }
+
+    &-link {
+      padding: 5px 0;
+    }
+  }
+}

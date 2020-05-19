@@ -1,0 +1,72 @@
+.footer__info {
+  padding: 32px 48px 0;
+  display: flex;
+  flex-direction: column;
+
+  @include media('>=smd') {
+    padding: 0 48px;
+  }
+
+  @include media('>=smd', '<md') {
+    flex-direction: unset;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    p, a {
+      width: 45%;
+    }
+  }
+
+  @include media('>=lg') {
+    padding: 0;
+    @include grid-column(4);
+  }
+
+  .info {
+    &__opening,
+    &__address,
+    &__phone,
+    &__email {
+      color: $color__white;
+      font-size: 18px;
+      line-height: 22px;
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 24px;
+
+      &:before {
+        @extend .material-icons-outlined;
+        font-size: 18px;
+        color: $color__grey--3;
+        position: absolute;
+        top: 4px;
+        left: 0;
+      }
+    }
+
+
+    &__opening {
+      &:before {
+        content: "schedule";
+      }
+    }
+
+    &__address {
+      &:before {
+        content: "place";
+      }
+    }
+
+    &__phone {
+      &:before {
+        content: "phone_enabled";
+      }
+    }
+
+    &__email {
+      &:before {
+        content: "email";
+      }
+    }
+  }
+}

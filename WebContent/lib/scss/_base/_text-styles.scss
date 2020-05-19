@@ -1,0 +1,126 @@
+@import "fonts";
+$header-style__font: 'Lora', serif;
+$text-style__font: 'Roboto', sans-serif;
+
+$text-style__margin: 0 0 16px 0;
+
+@mixin heading { //Defaults
+  font-family: $header-style__font;
+  font-style: normal;
+  font-weight: 400; //Regular
+  margin: $text-style__margin;
+  color: $color__primary;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin heading-h1 {
+  @include heading;
+
+  font-size: 48px;
+  line-height: 56px;
+
+  @include media('>=lg') {
+    font-size: 72px;
+    line-height: 80px;
+  }
+}
+
+@mixin heading-h2 {
+  @include heading;
+  font-size: 40px;
+  line-height: 48px;
+
+  @include media('>=lg') {
+    font-size: 64px;
+    line-height: 72px;
+  }
+}
+
+@mixin heading-h3 {
+  @include heading;
+  font-size: 32px;
+  line-height: 40px;
+
+  @include media('>=lg') {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+@mixin heading-h4 {
+  @include heading;
+  font-size: 24px;
+  line-height: 32px;
+
+  @include media('>=lg') {
+    font-size: 32px;
+    line-height: 56px;
+  }
+
+  letter-spacing: -0.41px;
+}
+
+@mixin heading-h5 {
+  @include heading;
+  font-size: 18px;
+  line-height: 24px;
+
+  @include media('>=lg') {
+    font-size: 24px;
+    line-height: 44px;
+  }
+}
+
+@mixin heading-h6 {
+  @include heading;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+@mixin text {
+  font-family: $text-style__font;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  margin: $text-style__margin;
+  -webkit-font-smoothing: antialiased;
+  color: $color__grey--3;
+}
+
+@mixin form-text {
+  @include text;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+@mixin text-caption {
+  font-family: $text-style__font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  margin: $text-style__margin;
+  color: $color__grey-1;
+  letter-spacing: 0.1em;
+}
+
+@mixin text-link {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  color: $color__link;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+@mixin text-button {
+  @include text;
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+  cursor: pointer;
+}

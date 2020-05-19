@@ -1,0 +1,75 @@
+.product-promo {
+  .content {
+    &__card {
+      @include grid-column(4);
+      box-shadow: $shadow__drop-shadow;
+      padding: 16px 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative; //For card link
+
+      @include media('>=md', '<lg') {
+        &:last-of-type {
+          @include grid-column(4, 3); //Center
+        }
+      }
+
+      @include media('>=smd') {
+        padding: 40px;
+      }
+
+      .card {
+        &__header {
+          margin-bottom: 16px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        &__image {
+          margin: 0 auto 16px;
+          max-width: 100%;
+          height: auto;
+
+          @include media('>=lg') {
+            margin: 0 auto 40px;
+          }
+        }
+
+        &__heading {
+          text-align: center;
+          position: relative;
+          padding-bottom: 16px;
+
+          &::after {
+            content: "";
+            width: 112px;
+            border-top: 1px solid $color__primary;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+
+        &__content {
+          text-align: center;
+
+          @include media(">=smd") {
+            max-width: 80%;
+            margin: 0 auto;
+          }
+        }
+
+        &__footer {
+          display: flex;
+          justify-content: center;
+          margin-top: auto;
+        }
+
+        &__read-more {
+
+        }
+      }
+    }
+  }
+}

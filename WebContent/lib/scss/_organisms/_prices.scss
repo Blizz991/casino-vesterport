@@ -1,0 +1,163 @@
+.prices {
+  &__heading {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  &__divider {
+    width: 90%;
+    margin: 0 auto 56px;
+
+    @include media('>=lg') {
+      width: 70%;
+      margin: 0 auto 88px;
+    }
+  }
+
+  &__content {
+
+    @include media('>=xl') {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .content__item {
+      box-shadow: $shadow__drop-shadow--soft;
+      padding: 32px 16px;
+      min-height: 416px;
+      display: flex;
+      flex-direction: column;
+      position: relative; //For card link
+      z-index: 0;
+
+      @include media('>=xl') {
+        box-shadow: $shadow__drop-shadow;
+        width: 33.33%;
+        min-height: 464px;
+        padding: 48px 48px 32px;
+      }
+
+      .item {
+        &__header {
+          text-align: center;
+
+          h2 {
+            position: relative;
+            margin-bottom: 56px;
+
+            &::after {
+              content: "";
+              width: calc(100% - 192px);
+              border-top: 1px solid $color__primary;
+              position: absolute;
+              bottom: -16px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+        }
+
+        &__price {
+          font-weight: 300; //Light
+          color: $color__black;
+          font-size: 64px;
+          line-height: 80px;
+        }
+
+        &__content {
+          display: flex;
+          justify-content: center;
+          font-weight: 300; //light
+          font-size: 24px;
+          margin: auto 0;
+
+          @include media('>=md') {
+            font-size: 36px;
+          }
+        }
+
+        &__from {
+          margin-right: 12px;
+        }
+
+        &__divider {
+          position: relative;
+
+          &:before {
+            content: "";
+            width: 40px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 1px solid $color__primary;
+          }
+        }
+
+        &__to {
+          margin-left: 52px;
+        }
+
+        &__footer {
+          display: flex;
+          justify-content: center;
+          margin-top: auto;
+        }
+      }
+
+      &:nth-of-type(2) {
+        background: $color__secondary;
+        margin: 0 -20px 0 -19px;
+        min-height: 420px;
+        z-index: 1;
+
+        @include media('>=xl') {
+          width: calc(33.33% + 42px);
+          position: absolute;
+          top: -48px;
+          left: 50%;
+          transform: translateX(-50%);
+          min-height: 560px;
+          margin: 0;
+        }
+
+        .item {
+          &__header {
+            h2 {
+              color: $color__white;
+              margin-bottom: 64px;
+
+              &:after {
+                border-color: $color__white;
+                width: calc(100% - 236px);
+              }
+            }
+          }
+
+          &__price {
+            color: $color__white;
+          }
+
+          &__content {
+            color: $color__white;
+            margin: auto 0;
+          }
+
+          &__divider {
+            &:before {
+              border-top: 1px solid $color__white;
+            }
+          }
+
+          &__read-more {
+            border: 2px solid $color__white;
+
+            &::after {
+              color: $color__white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

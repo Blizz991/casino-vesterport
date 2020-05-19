@@ -1,0 +1,4 @@
+@mixin card() {
+  box-shadow: $shadow__drop-shadow;
+  background: $color__white;
+}

@@ -1,0 +1,17 @@
+//Force entire card to be a link - card MUST be position relative!
+//Usage:
+//  <a class="card-link"
+//    ng-href="{{link.href}}"
+//	  ng-click="$event.preventDefault()"
+//	  ng-cloak>
+//	</a>
+.card-link {
+  content: "";
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2; //Above absolute positioned content
+}

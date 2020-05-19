@@ -1,0 +1,31 @@
+/*
+
+  Section: Main SCSS import file
+  Purpose: Imports scss files for concatenation.
+  
+  Project rules: Only use nesting for states, and never more than two levels deep.
+
+  Author: Komunikado.dk
+
+  @see https://www.lullabot.com/articles/bem-atomic-design-a-css-architecture-worth-loving
+  @see https://webdesign.tutsplus.com/articles/structuring-sass-saying-goodbye-to-atomic-design-ambiguity--cms-26679
+*/
+
+@import '_base/import';
+
+#content {
+  // revert above the fold styling
+  footer,
+  section,
+  .menu {
+    display: block;
+  }
+
+  @import "global";
+
+  @import 'vendors/import';
+  @import 'widgets/import';
+  @import '_atoms/import';
+  @import '_molecules/import';
+  @import '_organisms/import';
+}

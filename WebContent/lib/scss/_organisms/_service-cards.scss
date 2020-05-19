@@ -1,0 +1,90 @@
+.service-cards {
+  /*@include flush-container;*/
+
+  &__cards {
+    display: flex;
+    min-width: 0;
+    margin-right: -19px;
+
+    @include media('>=md') {
+      margin-right: -40px;
+    }
+
+    @include media('>=lg') {
+      margin-right: 0;
+      @include grid-container();
+    }
+  }
+
+  .slick-list {
+    margin: 0 -20px 0 -19px;
+    padding: 32px 20px 32px 19px !important; //Override padding from slick slider
+  }
+
+  .slick-track {
+    display: flex !important;
+  }
+
+  .slick-slide {
+    height: auto;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+
+    @include media('>=lg') {
+      display: none;
+    }
+  }
+
+  &__progress,
+  &__progress--inner {
+    height: 4px;
+    border-radius: 4px;
+  }
+
+  &__progress {
+    background: $color__grey--4;
+    width: calc(100% - 112px);
+    margin-right: 16px;
+
+    &--inner {
+      position: relative;
+      top: 2px;
+      background: $color__primary;
+      transition: ease 500ms;
+    }
+  }
+
+  &__prev,
+  &__next {
+    background: none;
+    outline: none;
+    border: none;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: inline-flex;
+
+    i {
+      font-size: 48px;
+      color: $color__grey--4;
+      outline: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__prev {
+    i {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__next {
+
+  }
+}

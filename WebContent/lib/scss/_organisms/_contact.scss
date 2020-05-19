@@ -1,0 +1,67 @@
+.contact-section {
+  @include grid-container();
+
+  @include media('>=md') {
+    position: relative;
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 40px;
+    margin-bottom: 160px;
+  }
+
+  @include media('>=lg') {
+    min-height: 864px;
+    background: url('../images/logo-bg.svg') top center no-repeat;
+    background-size: 100%;
+    margin-left: -64px;
+    margin-right: -64px;
+    padding: 160px 64px 80px;
+  }
+
+  &__form {
+    @include grid-column(4);
+    @include flush-container;
+    background: url('../images/logo-bg.svg') top center no-repeat;
+    background-size: 100%;
+    background-position: center;
+
+    @include media('>=md') {
+      @include grid-column(8);
+      background: white;
+      padding: 24px;
+      margin: 80px 0;
+      box-shadow: $shadow__drop-shadow;
+    }
+
+    @include media('>=lg') {
+      @include grid-column(6);
+      padding: 40px;
+      background-position: initial;
+    }
+  }
+
+  &__aside {
+    @include grid-column(4);
+    margin-right: -20px;
+    margin-left: -19px;
+
+    @include media('>=md') {
+      @include grid-column(8);
+      margin-left: -40px;
+      margin-right: -40px;
+    }
+
+    @include media('>=lg') {
+      @include grid-column(6);
+      margin: 0;
+
+      .map-section {
+        height: 100%;
+
+        iframe {
+          height: 100%;
+        }
+      }
+    }
+  }
+}

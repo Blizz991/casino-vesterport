@@ -1,0 +1,15 @@
+.main_body {
+  @include container;
+  @include container-padding;
+  margin-bottom: 0;
+
+
+}
+
+.container {
+  @include container;
+}
+
+.section-shared {
+    display: none;
+}

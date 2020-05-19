@@ -1,0 +1,184 @@
+.callToAction {
+  &__content {
+    position: relative;
+    min-height: 400px;
+
+    @include media('>=lg') {
+      min-height: 600px;
+    }
+
+    @include media('>=xxl') {
+      min-height: 800px;
+    }
+
+    .content {
+      &__body {
+        padding: 16px;
+        margin-top: -56px;
+        position: relative; //Prevent card link from extending to parent container
+        box-shadow: $shadow__drop-shadow--soft; //This is not in the design, but adds depth to the boxes
+
+        @include media('>=lg') {
+          display: flex; //Enable center container
+          padding: 40px;
+          margin: 0;
+        }
+
+        .body {
+          &__footer {
+            display: flex;
+            justify-content: center;
+            margin-top: 16px;
+
+            @include media('>=lg') {
+              margin-top: 40px;
+              justify-content: left;
+            }
+          }
+
+          &__read-more {
+
+          }
+        }
+      }
+
+      &__center-container {
+
+        h2 {
+          position: relative;
+          margin-bottom: 40px;
+
+          &::after {
+            content: "";
+            width: calc(100% - 192px);
+            border-top: 1px solid $color__primary;
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+          }
+
+          @include media('<=md') {
+            font-size: 32px;
+            line-height: 56px;
+          }
+
+          @include media('>=lg') {
+            margin-bottom: 56px;
+          }
+        }
+
+        @include media('>=lg') {
+          margin: auto 0;
+        }
+      }
+    }
+
+    &.content {
+      &--primary {
+        .content__body {
+          background: $color__white;
+
+          .body__read-more {
+            @extend .button__read-more--inverse;
+          }
+        }
+      }
+
+      &--secondary {
+        margin-bottom: 40px;
+
+        .content__body {
+          background: $color__secondary;
+
+          h2, p {
+            color: $color__white;
+          }
+
+          h2:after {
+            border-color: $color__white;
+          }
+
+          .body__read-more {
+            @extend .button__read-more;
+          }
+        }
+      }
+    }
+
+    &.image {
+      &--right,
+      &--left {
+        .callToAction__image {
+          img {
+            @include media('>=lg') {
+              margin: 0 auto 0 0;
+            }
+          }
+        }
+
+        .content__body {
+          @include media('>=lg') {
+            position: absolute;
+            width: 40vw;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+
+      &--right {
+        .callToAction__image {
+          img {
+            @include media('>=lg') {
+              margin: 0 0 0 auto;
+            }
+          }
+        }
+
+        .content__body {
+          @include media('>=lg') {
+
+          }
+        }
+      }
+
+      &--left {
+        .content__body {
+          @include media('>=lg') {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__image {
+    @include flush-container;
+
+    @include media('>=md') {
+      display: flex;
+    }
+
+    @include media('>=lg') {
+      margin: 0;
+    }
+
+    img {
+      max-height: 336px;
+      object-fit: cover;
+      width: 100%;
+
+      @include media('>=md') {
+        max-width: 100%;
+        width: auto;
+        margin: 0 auto;
+        max-height: 560px;
+        object-fit: unset;
+      }
+
+      @include media('>=lg') {
+        max-height: unset;
+      }
+    }
+  }
+}

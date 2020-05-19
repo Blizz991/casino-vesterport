@@ -1,0 +1,151 @@
+.slider-hero {
+  @include flush-container;
+  //This was an attempt to fix the jump on initial load - didn't work
+  /*height: 712px;
+
+  @include media('>=lg') {
+    height: 944px;
+  }*/
+
+  &__slides {
+    height: 712px;
+
+    @include media('>=lg') {
+      height: 944px;
+    }
+
+    .slick {
+      &-list {
+        height: 100% !important;
+      }
+
+      &-track {
+        height: 100%;
+      }
+    }
+  }
+
+  &__slide {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $color__grey--3;
+    width: 100vw;
+    max-width: 1440px;
+    display: flex !important;
+    position: relative;
+
+    @include container-padding;
+    padding-bottom: 96px;
+
+    @include media('>lg') {
+      padding-bottom: 160px;
+    }
+
+    @include media('>xl') {
+      padding-bottom: 216px;
+    }
+
+    @include media('>xxl') {
+      padding-bottom: 216px;
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: $color__grey-1;
+      opacity: 0.45;
+      position: absolute;
+      left: 0;
+      z-index: 0;
+    }
+  }
+
+  .slick-dots {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: absolute;
+    bottom: 32px;
+    left: 19px;
+
+    @include media('>=md') {
+      left: 40px;
+    }
+
+    @include media('>=lg') {
+      bottom: 16px;
+      left: 64px;
+    }
+
+    li {
+      button {
+        width: 40px; //Design says 32px, but it feels too small
+        height: 40px;
+        background: none;
+        position: relative;
+        border: 4px solid transparent;
+        border-radius: 50%;
+        cursor: pointer;
+        //Hack to prevent numbers from displaying
+        white-space: nowrap;
+        overflow: hidden;
+        text-indent: -9999px;
+        outline: none;
+
+        @include media('>=lg') {
+          width: 48px;
+          height: 48px;
+        }
+
+        @include media('>=xxl') {
+          width: 56px;
+          height: 56px;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: calc(50% - 12px);
+          left: 50%;
+          transform: translate(-50%);
+          width: 0;
+          height: 0;
+          border: 6px solid transparent;
+          border-bottom-color: transparent;
+          border-bottom-color: $color__white;
+
+          @include media('>=lg') {
+            top: calc(50% - 16px);
+            border-width: 8px;
+          }
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%);
+          width: 0;
+          height: 0;
+          border: 6px solid transparent;
+          border-top-color: transparent;
+          border-top-color: $color__white;
+
+          @include media('>=lg') {
+            border-width: 8px;
+          }
+        }
+      }
+    }
+
+    .slick-active {
+      button {
+        border: 4px solid $color__secondary;
+      }
+    }
+  }
+}

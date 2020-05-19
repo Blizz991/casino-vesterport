@@ -1,0 +1,65 @@
+.opening-times {
+  padding: 16px;
+  position: relative;
+
+  @include media('>=lg') {
+    padding: 64px 0;
+  }
+
+  &__heading {
+    text-align: center;
+    margin-bottom: 32px;
+
+    @include media('>=lg') {
+      font-size: initial;
+      line-height: initial;
+      margin-bottom: initial;
+    }
+  }
+
+  &__divider {
+    display: none;
+
+    @include media('>=lg') {
+      display: block;
+      margin: 48px auto 120px;
+      width: 80%;
+    }
+  }
+
+  &__nav {
+    display: none; //TODO: Is this really worth the time?
+    /*display: flex;*/
+    align-items: center;
+    position: absolute;
+    height: 56px;
+    width: calc(100% - 32px);
+    left: 16px;
+  }
+
+  &__prev,
+  &__next {
+    color: $color__black;
+
+    i {
+      font-size: 44px;
+    }
+
+  }
+
+  &__prev {
+    margin-right: auto;
+  }
+
+  &__next {
+
+  }
+
+  &__content {
+    @include media('>=smd') {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/*
+
+  Section: Main SCSS import file
+  Purpose: Imports scss files for concatenation.
+  
+  Project rules: Only use nesting for states, and never more than two levels deep.
+
+  Author: Komunikado.dk
+
+*/
+
+@import '_base/import';
+
+html {
+  font-family: $text-style__font;
+}
+
+body {
+  margin: 0;
+}
+
+#content {
+  footer,
+  section,
+  .menu {
+    display: none;
+  }
+
+  @import 'vendors/import';
+
+  @import '_atoms/import';
+  @import '_molecules/import';
+  @import "_organisms/header";
+  @import '_organisms/slider-hero';
+}
